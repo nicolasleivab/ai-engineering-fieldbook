@@ -37,6 +37,8 @@ The goal is not to collect every new framework. It is to understand stable conce
 
 ## Status
 
-Catch-up phase: **Week 1 — LLM reset and modern agent architecture**.
+Catch-up phase: **Week 2 — memory, retrieval, and durable execution**.
+
+Latest update: [2026-09-27](./weekly/2026-09-27.md).
 
 This is a personal engineering fieldbook maintained in public. It is intentionally opinionated and will change as evidence and production experience accumulate.

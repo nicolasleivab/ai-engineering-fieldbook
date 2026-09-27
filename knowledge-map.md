@@ -1,6 +1,6 @@
 # AI Engineering Knowledge Map
 
-_Last reviewed: 2026-09-19_
+_Last reviewed: 2026-09-27_
 
 ## Shelf-life legend
 
@@ -14,14 +14,14 @@ _Last reviewed: 2026-09-19_
 |---|---|---|---|---|
 | Models | capability boundaries, generalization, evaluation | routing, adaptation, distillation | model IDs and pricing | Select by measured task performance, latency, and cost |
 | Context | relevance, finite attention, context budgeting | compaction, just-in-time retrieval | SDK context APIs | Curate the smallest sufficient context |
-| Tools | explicit contracts, validation, error semantics | discovery, MCP ecosystems | schemas and transports | Treat tools as typed, permissioned interfaces |
-| Harness | observe-decide-act loop, separation of concerns | planning, delegation, subagents | framework APIs | Keep the control loop inspectable and testable |
+| Tools | explicit contracts, validation, error semantics, bounded inputs | discovery, capability-scoped authorization, MCP ecosystems | schemas, transports, OAuth/DPoP SDK surfaces | Treat tools as typed, permissioned, resource-bounded interfaces; authorize before dispatch |
+| Harness | observe-decide-act loop, separation of concerns | planning, delegation, subagents, skill packaging and activation | framework APIs | Keep the control loop inspectable and testable; evaluate skill activation separately from behavior after loading |
 | State | durability, idempotency, retries, checkpoints | resumable workflows | orchestration libraries | Workflow state is authoritative; do not hide it in chat history |
-| Memory | write/retrieve/update/forget policies | consolidation, temporal graphs | memory vendors | Memory is learned persistent information, not transcript replay |
+| Memory | write/retrieve/update/forget policies, verified persistence | consolidation, temporal graphs, derived user profiles | memory vendors | Memory is learned persistent information, not transcript replay; test writes, filters, ranking, and invalidation independently and end-to-end |
 | Retrieval | precision/recall, ranking, provenance | agentic retrieval, hybrid search | vector DB APIs | Measure retrieval independently and end-to-end |
 | Execution | isolation, least privilege, resource limits | ephemeral sandboxes | sandbox vendors | Assume generated code and external content are untrusted |
 | Reliability | outcome evals, trace diagnosis, regression tests | automated judges, simulation | observability SDKs | Start with task success; use traces to explain failures |
-| Security | authentication, authorization, data boundaries | prompt-injection defenses | platform controls | Enforce permissions outside the model |
+| Security | authentication, authorization, least privilege, data boundaries, resource bounds | prompt-injection defenses, sender-constrained credentials | platform controls | Enforce identity, permissions, and resource limits outside the model and before handler execution |
 | Economics | latency/quality/cost trade-offs | routing and caching strategies | token prices | Optimize against representative workloads |
 
 ## Essential distinctions
@@ -54,3 +54,4 @@ conversation history ≠ context ≠ working memory
 - Which agent evals correlate best with production outcomes?
 - When does post-training outperform a better harness or better context?
 - What security boundaries should remain deterministic and model-independent?
+- How should skill discovery and activation be measured independently from skill quality after loading?
