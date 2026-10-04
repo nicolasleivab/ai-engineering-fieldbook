@@ -37,8 +37,8 @@ The goal is not to collect every new framework. It is to understand stable conce
 
 ## Status
 
-Catch-up phase: **Week 2 — memory, retrieval, and durable execution**.
+Catch-up phase: **Week 3 — eval engineering and post-training**.
 
-Latest update: [2026-09-27](./weekly/2026-09-27.md).
+Latest update: [2026-10-04](./weekly/2026-10-04.md).
 
 This is a personal engineering fieldbook maintained in public. It is intentionally opinionated and will change as evidence and production experience accumulate.
