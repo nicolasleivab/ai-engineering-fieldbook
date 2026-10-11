@@ -37,8 +37,8 @@ The goal is not to collect every new framework. It is to understand stable conce
 
 ## Status
 
-Catch-up phase: **Week 3 — eval engineering and post-training**.
+Catch-up phase: **Week 4 — production hardening**.
 
-Latest update: [2026-10-04](./weekly/2026-10-04.md).
+Latest update: [2026-10-11](./weekly/2026-10-11.md).
 
 This is a personal engineering fieldbook maintained in public. It is intentionally opinionated and will change as evidence and production experience accumulate.
