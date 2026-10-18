@@ -37,8 +37,8 @@ The goal is not to collect every new framework. It is to understand stable conce
 
 ## Status
 
-Catch-up phase: **Week 4 — production hardening**.
+Catch-up phase complete. Current phase: **steady-state frontier review and targeted experiments**.
 
-Latest update: [2026-10-11](./weekly/2026-10-11.md).
+Latest update: [2026-10-18](./weekly/2026-10-18.md).
 
 This is a personal engineering fieldbook maintained in public. It is intentionally opinionated and will change as evidence and production experience accumulate.
