@@ -1,6 +1,6 @@
 # AI Engineering Knowledge Map
 
-_Last reviewed: 2026-11-01_
+_Last reviewed: 2026-11-08_
 
 ## Shelf-life legend
 
@@ -14,10 +14,10 @@ _Last reviewed: 2026-11-01_
 |---|---|---|---|---|
 | Models | capability boundaries, generalization, evaluation | routing, adaptation, distillation | model IDs and pricing | Select by measured task performance, latency, and cost; in agentic post-training, validate sampler/trainer probability support, policy version, precision, masking, and objective equivalence before trusting reward curves |
 | Context | relevance, finite attention, context budgeting | compaction, just-in-time retrieval | SDK context APIs | Curate the smallest sufficient context; treat compaction as a state transition that preserves provenance, committed actions, and unresolved approvals |
-| Tools | explicit contracts, validation, error semantics, bounded inputs | discovery, capability-scoped authorization, MCP ecosystems | schemas, transports, OAuth/DPoP SDK surfaces | Treat tools as typed, permissioned, resource-bounded interfaces; authorize before dispatch |
+| Tools | explicit contracts, validation, error semantics, bounded inputs | discovery, capability-scoped authorization, MCP ecosystems | schemas, transports, OAuth/DPoP SDK surfaces | Treat tools as typed, permissioned, resource-bounded interfaces; annotations are advisory, so authorize before dispatch and enforce canonical resource scope, least-privilege modes, timeouts, cancellation, and output bounds at the server |
 | Harness | observe-decide-act loop, separation of concerns, explicit state and approval ownership | planning, delegation, subagents, skill packaging and activation | framework APIs | Keep the control loop inspectable and testable; isolate per-run/per-agent state and scope approvals to the owning agent; treat skills as versioned, integrity-checked inputs and evaluate discovery, loading, and behavior separately |
-| State | durability, idempotency, retries, checkpoints | resumable workflows | orchestration libraries | Persisted workflow state is authoritative; give every external resource a lifecycle owner through timeout, cancellation, and ambiguous errors; test replay compatibility and drain or version workers before behavior-changing upgrades; historical checkpoints must fork explicitly and preserve sibling isolation |
-| Memory | write/retrieve/update/forget policies, verified persistence | consolidation, temporal graphs, derived user profiles | memory vendors | Memory is learned persistent information, not transcript replay; separate stored content, persistent access/index state, and exposure policy, and evaluate them by future-action gains under interference and change rather than retrieval accuracy alone |
+| State | durability, idempotency, retries, checkpoints | resumable workflows | orchestration libraries | Persisted workflow state is authoritative; when transition rules are known, derive current state with validated deterministic reducers instead of asking a model to reconstruct it from long history; give every external resource a lifecycle owner through timeout, cancellation, and ambiguous errors; test replay compatibility and drain or version workers before behavior-changing upgrades; historical checkpoints must fork explicitly and preserve sibling isolation |
+| Memory | write/retrieve/update/forget policies, verified persistence | consolidation, temporal graphs, derived user profiles | memory vendors | Memory is learned persistent information, not transcript replay; separate source logs, stored content, persistent access/index state, derived representations, and exposure policy; measure task-conditioned future-action gain against formation, maintenance, and exposure cost under interference and change, preserve provenance for repair, and use derived representations to complement rather than silently replace search |
 | Retrieval | precision/recall, ranking, provenance | agentic retrieval, hybrid search | vector DB APIs | Measure retrieval independently and end-to-end |
 | Execution | isolation, least privilege, resource limits, idempotency-aware retries | ephemeral sandboxes | sandbox vendors | Assume generated code and external content are untrusted; require authenticated ingress, enforced egress, canonical resource checks, and owned cleanup; automatically retry only operations known safe to replay, otherwise use idempotency keys or reconciliation |
 | Reliability | outcome evals, trace diagnosis, regression tests, oracle integrity | automated judges, simulation | observability SDKs | Start with task success, then test trajectories and components; validate graders, score transforms, fixtures, runner failures, oracle non-interference, terminal-state reconstruction, and declared run conditions with golden cases in a clean grading environment |
@@ -49,13 +49,13 @@ conversation history ≠ context ≠ working memory
 
 ## Open questions
 
-- Which store, access-index, recall, and forget policies improve future actions under interference and change without creating popularity feedback loops?
+- Which store, access-index, recall, consolidation, and forget policies improve task-conditioned future actions under interference and change without creating popularity feedback loops, and when do their maintenance and exposure costs exceed the gain?
 - Where does Temporal end and agent-managed state begin?
 - Which agent evals correlate best with production outcomes?
 - When does post-training outperform a better harness or better context, and which parity checks prove that sampler and trainer optimize the intended objective?
 - What security boundaries should remain deterministic and model-independent?
 - How should skill discovery and activation be measured independently from skill quality after loading?
 - How should portable skill catalogs be versioned, verified, trusted, and invalidated?
-- Which lifecycle-ownership, state-ownership, approval-scope, compaction, recovery, replay-versioning, oracle-integrity, and checkpoint-branch invariants should become cross-framework conformance tests?
+- Which lifecycle-ownership, deterministic-reducer, state-ownership, approval-scope, compaction, recovery, replay-versioning, oracle-integrity, and checkpoint-branch invariants should become cross-framework conformance tests?
 - Which trajectory-level privacy checks catch real violations without blocking legitimate work?
 - Which authorization evals distinguish useful initiative from scope drift and trigger consultation at the right boundary?

@@ -39,6 +39,6 @@ The goal is not to collect every new framework. It is to understand stable conce
 
 Catch-up phase complete. Current phase: **steady-state frontier review and targeted experiments**.
 
-Latest update: [2026-11-01](./weekly/2026-11-01.md).
+Latest update: [2026-11-08](./weekly/2026-11-08.md).
 
 This is a personal engineering fieldbook maintained in public. It is intentionally opinionated and will change as evidence and production experience accumulate.
